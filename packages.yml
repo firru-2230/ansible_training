@@ -1,0 +1,50 @@
+---
+  - name: install HTTPD package on webservers
+    hosts: webservers
+    become: yes
+    tasks:
+        - name: install httpd package
+          yum:
+            name: httpd
+            state: latest
+        - name: start httpd
+          systemd:
+            name: httpd
+            state: started   
+
+  - name: install tomcat in appservers
+    hosts: appservers
+    become: yes 
+    tasks:
+      - name: install java
+        yum: 
+          name: java
+      - name: install tomcat
+        get_url: 
+          url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.zip
+          dest: /opt
+      - name: unarchive tomcat binaries
+        unarchive: 
+          src: /opt/apache-tomcat-9.0.80.zip
+          dest: /opt/
+          remote_src: yes 
+      - name: enable permissions to tomcat
+        file:
+          path: /opt/apache-tomcat-9.0.80
+          state: directory
+          recurse: yes
+          mode: 0755 
+      - name: start tomcat
+        command: /opt/apache-tomcat-9.0.80/bin/startup.sh
+  - name: install postgress DB
+    hosts: dbservers
+    become: yes
+    tasks:
+      - name: install postgresql15
+        yum: 
+          name: postgresql15
+      - name: start postgresql15
+        systemd: 
+          name: postgresql15
+          state: started
+...
