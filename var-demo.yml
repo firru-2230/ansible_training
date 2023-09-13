@@ -1,6 +1,6 @@
 ---
   - name: This is a demo variable file
-    hosts: localhost
+    hosts: all
     become: yes
     vars: 
       user: demo
