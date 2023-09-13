@@ -7,6 +7,10 @@
         - Firoz
         - Ayaan
         - Arha
+      fruits:
+        fruit1: apple
+        fruit2: banana
+        fruit3: mango
     tasks:
       - name: displaying users from list
         debug:
@@ -17,4 +21,7 @@
             - first user is {{users[0]}}
             - second user is {{users[1]}}
             - third user is {{users[2]}}
+      - name: displaying a dictionary
+        debug:
+          var: users dictionary is fruits
 ...
