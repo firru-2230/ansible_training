@@ -24,4 +24,13 @@
       - name: displaying a dictionary
         debug:
           var: fruits
+      - name: displaying first key and values from dict
+        debug:
+          var: fruits.fruit1
+      - name: displaying second key and values from dict
+        debug:
+          var: fruits['fruit2']
+      - name: displaying third key and values from dict
+        debug:
+          var: fruits.fruit3
 ...
