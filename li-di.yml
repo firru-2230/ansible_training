@@ -23,5 +23,5 @@
             - third user is {{users[2]}}
       - name: displaying a dictionary
         debug:
-          var: users dictionary is fruits
+          var: users dictionary is 'fruits'
 ...
