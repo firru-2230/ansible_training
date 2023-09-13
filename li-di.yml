@@ -11,4 +11,9 @@
       - name: displaying users from list
         debug:
           msg: users are {{users}}
+      - name: displaying users individually
+        debug:
+          msg: first user is {{users[0]}}
+          msg: second user is {{users[1]}}
+          msg: third user is {{users[2]}}
 ...
