@@ -1,0 +1,14 @@
+---
+  - name: practice with lists and dicts
+    hosts: localhost
+    become: yes
+    vars:
+      users:
+        - Firoz
+        - Ayaan
+        - Arha
+    tasks:
+      - name: displaying users from list
+        debug:
+          msg: users are {{users}}
+...
