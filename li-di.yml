@@ -13,7 +13,8 @@
           msg: users are {{users}}
       - name: displaying users individually
         debug:
-          msg: first user is {{users[0]}}
-          msg: second user is {{users[1]}}
-          msg: third user is {{users[2]}}
+          msg: 
+            - first user is {{users[0]}}
+            - second user is {{users[1]}}
+            - third user is {{users[2]}}
 ...
