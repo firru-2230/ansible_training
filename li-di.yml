@@ -33,4 +33,10 @@
       - name: displaying third key and values from dict
         debug:
           var: fruits.fruit3
+      - name: displaying keys in dictionary
+        debug:
+          var: fruits.keys()
+      - name: displaying values in dictionary
+        debug:
+          var: fruits.values()
 ...
